@@ -141,49 +141,97 @@ $(document).ready(function() {
 
 
 
-$(".maker-slide").slick({
-  autoplay: true,
-  autoplaySpeed: 3000,
-  speed: 1000,
-  cssEase: 'linear',
-  slidesToShow: 2,
-  arrows: true,  // 矢印を表示
-  prevArrow: '<div class="slick-prev"><div></div></div>',  // カスタマイズした矢印
-  nextArrow: '<div class="slick-next"><div></div></div>',  // カスタマイズした矢印
-  swipe: false,
-  pauseOnFocus: false,
-  pauseOnHover: false,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
+// $(".maker-slide").slick({
+//   autoplay: true,
+//   autoplaySpeed: 3000,
+//   speed: 1000,
+//   cssEase: 'linear',
+//   slidesToShow: 2,
+//   arrows: true,  // 矢印を表示
+//   prevArrow: '<div class="slick-prev"><div></div></div>',  // カスタマイズした矢印
+//   nextArrow: '<div class="slick-next"><div></div></div>',  // カスタマイズした矢印
+//   swipe: false,
+//   pauseOnFocus: false,
+//   pauseOnHover: false,
+//   responsive: [
+//     {
+//       breakpoint: 768,
+//       settings: {
+//         slidesToShow: 1,
+//       },
+//     },
+//   ],
+// });
+// 初期化済みかどうかを管理するフラグ
+let isSlickInitialized = false;
+
+function initializeSlickSlider() {
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    if (!isSlickInitialized) {
+      $(".maker-slide").slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 1000,
+        cssEase: 'linear',
+        slidesToShow: 2,
+        arrows: true,
+        prevArrow: '<div class="slick-prev"><div></div></div>',
+        nextArrow: '<div class="slick-next"><div></div></div>',
+        swipe: false,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+        ],
+      });
+      isSlickInitialized = true;
+    }
+  } else {
+    if (isSlickInitialized) {
+      // スライダーを破棄する
+      $(".maker-slide").slick('unslick');
+      isSlickInitialized = false;
+    }
+  }
+}
+
+// 初期ロード時にスライダーを確認
+initializeSlickSlider();
+
+// ウィンドウサイズが変更されたときにも確認
+$(window).on('resize', function() {
+  initializeSlickSlider();
 });
 
-$(".voice-slide").slick({
-  autoplay: true,
-  autoplaySpeed: 3000,
-  speed: 1000,
-  cssEase: 'linear',
-  slidesToShow: 3, // 通常表示は3つのアイテム
-  arrows: true, // 矢印を表示
-  prevArrow: '<div class="voice-prev"><div></div></div>', // カスタマイズした矢印 (新しいクラス名を使用)
-  nextArrow: '<div class="voice-next"><div></div></div>', // カスタマイズした矢印 (新しいクラス名を使用)
-  swipe: false,
-  pauseOnFocus: false,
-  pauseOnHover: false,
-  responsive: [
-    {
-      breakpoint: 768, // 768px以下の画面サイズに対応
-      settings: {
-        slidesToShow: 1, // 1つのスライドを表示
-      },
-    },
-  ],
-});
+
+
+
+// $(".voice-slide").slick({
+//   autoplay: true,
+//   autoplaySpeed: 3000,
+//   speed: 1000,
+//   cssEase: 'linear',
+//   slidesToShow: 3, // 通常表示は3つのアイテム
+//   arrows: true, // 矢印を表示
+//   prevArrow: '<div class="voice-prev"><div></div></div>', // カスタマイズした矢印 (新しいクラス名を使用)
+//   nextArrow: '<div class="voice-next"><div></div></div>', // カスタマイズした矢印 (新しいクラス名を使用)
+//   swipe: false,
+//   pauseOnFocus: false,
+//   pauseOnHover: false,
+//   responsive: [
+//     {
+//       breakpoint: 768, // 768px以下の画面サイズに対応
+//       settings: {
+//         slidesToShow: 1, // 1つのスライドを表示
+//       },
+//     },
+//   ],
+// });
 
 
   //よくあるご質問

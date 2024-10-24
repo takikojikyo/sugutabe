@@ -674,10 +674,11 @@ color: #E8E3DFE0;
 }
 .maker-slide{
   display: flex;
+  justify-content: space-around;
   position: relative;
 }
 .maker-slide li{
-  width: 45%;
+  width: 48%;
   padding: 30px;
 }
 
@@ -745,6 +746,20 @@ color: #E8E3DFE0;
 .inner{
   max-width: 1062px;
   margin: 0 auto;
+  position: relative;
+}
+.maker-arrows{
+  display: block;
+  position: absolute;
+  top: 50%;
+}
+.maker-arrow1{
+  left: -25px;
+  transform: translateY(-50%) rotate(-180deg);
+}
+.maker-arrow2{
+  right: -25px;
+  transform: translateY(-50%);
 }
 
 
@@ -767,15 +782,29 @@ color: #E8E3DFE0;
 .voice-title h2{
   font-size: 48px;
 }
+
 .voice-slide{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2%;
+  margin-top: 24px;
+}
+.person{
+  display: block;
+}
+.person-sp{
+  display: none;
+}
+
+/* .voice-slide{
   display: flex;
   position: relative;
   margin-top: 24px;
 }
 .voice-slide li{
-  padding: 10px; /* 各スライド間にスペースを追加 */
-}
-.voice-slide-inner{
+  padding: 10px; 
+} */
+/* .voice-slide-inner{
 width: 100%; 
 background-image: url(../img/fb1692c74840e96207b739c15e094e9c.png);
   background-repeat: repeat;
@@ -853,7 +882,7 @@ font-size: 14px;
 
 .voice-next {
   right: -26px;
-}
+} */
 
 
 /*qa*/
@@ -1354,6 +1383,10 @@ footer .container{
   right: -5px; /* 右側に矢印を画面内に配置 */
 }
 
+.maker-arrows{
+  display: none;
+}
+
 
 /*voice*/
 
@@ -1374,8 +1407,19 @@ footer .container{
   border-bottom: 1px solid #91806C80;
   margin-bottom: 4px;
 }
+.voice-slide{
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.person{
+  display: none;
+}
+.person-sp{
+  display: block;
+  width: 100%;
+}
 
-.voice-subtitle{
+/* .voice-subtitle{
   border-bottom: none;
   padding-bottom: 0px;
 }
@@ -1403,7 +1447,7 @@ line-height: 20.8px;
 
   .voice-next {
     right: -23px;
-  }
+  } */
 
   /*qa*/
 .qa{
@@ -1444,22 +1488,30 @@ display: none; /* ここで非表示に設定 */
   margin-top: 12px;
 }
 
-  .qa-area-title::after {
-    content: ''; /* 空のコンテンツで三角形を描画 */
+  /* .qa-area-title::after {
+    content: ''; 
     position: absolute;
     right: 0;
     top: 0%;
     width: 24px;
     height: 24px;
-    background-color: #fff; /* 丸の背景を黒に */
+    background-color: #fff; 
     border: 1px solid #756351;
-    border-radius: 50%; /* 丸くする */
-  }
+    border-radius: 50%; 
+  } */
 
   /* 丸の中の三角（下向き） */
   .qa-area-title::before {
     content: '';
-    width: 0;
+    display: block;
+    background-image: url("../img/arrow.png");
+    position: absolute;
+    right: 0;
+    top: 0%;
+    width: 24px;
+    height: 24px;
+    
+    /* width: 0;
 height: 0;
 border-style: solid;
 border-color: #756351 transparent transparent transparent;
@@ -1467,7 +1519,7 @@ border-width: 8.66px 5px 0px 5px;
     position: absolute;
     right: 7px;
     top: 27%;
-  z-index: 1;
+  z-index: 1; */
   }
 
   /* 開いた状態では三角を上向きに */
