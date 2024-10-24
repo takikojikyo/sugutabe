@@ -1436,6 +1436,7 @@ line-height: 20.8px;
 }
 .qa-box{
 margin-top:12px;
+display: none; /* ここで非表示に設定 */
 }
 .qa-box p{
   line-height: 22.4px;
@@ -1464,8 +1465,8 @@ border-style: solid;
 border-color: #756351 transparent transparent transparent;
 border-width: 8.66px 5px 0px 5px;
     position: absolute;
-    right: 8px;
-    top: 25%;
+    right: 7px;
+    top: 27%;
   z-index: 1;
   }
 

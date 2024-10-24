@@ -198,6 +198,9 @@ $(".voice-slide").slick({
           $(findElm).slideToggle(); // アコーディオン動作
           $(this).toggleClass('active'); // アイコンの向きのクラスを切り替え
         });
+        
+        // 初期状態で .qa-box を非表示に設定
+        $('.qa-box').hide();
       } else {
         // PCサイズではアコーディオン機能を解除し、qa-boxを常に表示
         $('.qa-box').show(); // 常に表示
@@ -214,5 +217,6 @@ $(".voice-slide").slick({
       setAccordion();
     });
   });
+  
   
 });
